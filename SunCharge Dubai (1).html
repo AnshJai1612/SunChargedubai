@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SunCharge Dubai</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+:root{
+  --sun:#ffc21a; --ink:#0a1740; --p-bg:#f6dcb8; --p-ink:#1d1208; --p-mute:#5b4128;
+  --disp:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; --body:"Newsreader",Georgia,"Times New Roman",serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--p-bg:#2b1b10;--p-ink:#fbeedd;--p-mute:#d9bd9a}}
+:root[data-theme="dark"]{--p-bg:#2b1b10;--p-ink:#fbeedd;--p-mute:#d9bd9a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:#070d2b;color:#fff;font:400 1.2rem/1.55 var(--body);overflow-x:hidden}
+h1,h2,h3{font-family:var(--disp);margin:0;line-height:.95;letter-spacing:-.03em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+section{padding:clamp(4rem,10vw,8rem) 0}
+h2{font-size:clamp(2.6rem,7.5vw,5.6rem);font-weight:800}
+.tx{max-width:34em}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-start;padding:clamp(3rem,8vw,6rem) 0 0;overflow:hidden;
+  background:linear-gradient(#1f55d8 0%,#4f8cf0 55%,#a9cdff 100%)}
+.hero .w{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(4rem,15vw,11.5rem);font-weight:800;line-height:.86}
+.hero h1 span{display:block;color:var(--sun)}
+.hero p{font-size:clamp(1.15rem,2.2vw,1.55rem);max-width:21em;margin-top:1.6rem}
+.hero p.sm{font-style:italic;opacity:.85;margin-top:.7rem;font-size:1.1rem}
+.scene{position:absolute;inset:0;width:100%;height:100%}
+.sunball{animation:rise 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:translateY(120px)}to{transform:none}}
+@media(prefers-reduced-motion:reduce){.sunball{animation:none}}
+
+/* problem */
+.prob{background:var(--p-bg);color:var(--p-ink)}
+.prob .g{display:grid;gap:3rem;grid-template-columns:1fr}
+@media(min-width:860px){.prob .g{grid-template-columns:1.2fr 1fr;align-items:end}}
+.prob .lead{font-size:1.55rem;margin-top:1.8rem}
+.prob .opp{margin-top:2rem;padding-top:1.2rem;border-top:2px solid currentColor;color:var(--p-mute)}
+.prob .opp b{color:var(--p-ink);font-family:var(--disp)}
+.needs{list-style:none;padding:0;margin:0;font:800 clamp(2.2rem,5vw,3.4rem)/1.12 var(--disp);letter-spacing:-.03em}
+.needs li{border-bottom:2px solid var(--p-ink);padding:.35em 0;display:flex;justify-content:space-between;align-items:baseline}
+.needs li i{font:400 1rem var(--body);color:var(--p-mute);font-style:italic}
+.batt{display:flex;align-items:center;margin-top:2.5rem}
+.batt div{width:min(260px,70%);height:76px;border:5px solid var(--p-ink);border-radius:16px;padding:6px}
+.batt div::before{content:"";display:block;width:8%;height:100%;background:#d8402a;border-radius:6px}
+.batt::after{content:"";width:9px;height:30px;background:var(--p-ink);border-radius:0 5px 5px 0}
+
+/* how */
+.how{background:#1b4fc9}
+.arc{display:block;width:100%;height:auto;margin-top:2rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;margin-top:-.5rem}
+.steps h3{font-size:2rem;font-weight:800}
+.steps p{font-size:1.05rem;margin-top:.5rem;opacity:.92}
+@media(max-width:820px){.arc{display:none}.steps{grid-template-columns:1fr 1fr;text-align:left;gap:2rem 1.2rem;margin-top:2.5rem}}
+.fin{display:grid;gap:2.5rem;margin-top:5rem;grid-template-columns:1fr}
+@media(min-width:860px){.fin{grid-template-columns:1fr 1fr}}
+.fin h3{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+.fin .tx{margin-top:1rem}
+.ports{display:flex;gap:2rem;margin-top:1.2rem;align-items:flex-end}
+.ports figure{margin:0;font:800 1.1rem var(--disp)}
+.ports svg{display:block;margin-bottom:.4rem}
+
+/* dubai */
+.dub{background:var(--sun);color:var(--ink)}
+.dub .big{font:800 clamp(9rem,34vw,25rem)/.78 var(--disp);letter-spacing:-.07em;margin-left:-.04em}
+.dub .big sup{font-size:.4em;vertical-align:top;letter-spacing:0}
+.dub .row{display:grid;gap:2.5rem;grid-template-columns:1fr;margin-top:2rem}
+@media(min-width:860px){.dub .row{grid-template-columns:1fr 1.1fr}}
+.dub h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.why{list-style:none;padding:0;margin:0}
+.why li{border-top:2px solid var(--ink);padding:1rem 0 1.2rem}
+.why b{display:block;font:800 1.7rem var(--disp);letter-spacing:-.02em}
+.dub .close{margin-top:3rem;font-size:1.5rem;font-style:italic;max-width:24em}
+
+/* build */
+.build{background:var(--ink)}
+.build .g{display:grid;grid-template-columns:1fr;gap:0;margin-top:3rem}
+@media(min-width:760px){.build .g{grid-template-columns:1fr 1fr;column-gap:4rem}}
+.build .it{padding:1.6rem 0;border-top:1px solid rgba(255,255,255,.25)}
+.build .it h3{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:var(--sun)}
+.build .it p{margin-top:.6rem;max-width:24em;opacity:.9}
+
+/* pilot */
+.pilot{background:linear-gradient(#1d2a6b,#2c2a72)}
+.pilot .lead{font-size:1.5rem;font-style:italic;margin-top:1.2rem}
+.path{margin-top:3.5rem;display:grid;gap:2.5rem}
+.stp{display:grid;grid-template-columns:clamp(4.5rem,14vw,9rem) 1fr;gap:1rem;align-items:start}
+.stp b{font:800 clamp(5rem,16vw,10rem)/.78 var(--disp);color:var(--sun);letter-spacing:-.06em}
+.stp h3{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800}
+.stp p{margin-top:.5rem;max-width:30em;opacity:.92}
+
+/* matters */
+.mat{background:#141c52}
+.mat .g{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-top:3rem}
+@media(min-width:860px){.mat .g{grid-template-columns:repeat(3,1fr)}}
+.mat .g h3{font-size:2.2rem;font-weight:800;color:var(--sun)}
+.mat .g p{margin-top:.5rem}
+.sdg{display:flex;flex-wrap:wrap;gap:1.2rem 2.4rem;margin-top:5rem;align-items:flex-start}
+.sdg > p{flex:0 0 100%;font:800 1.4rem var(--disp)}
+.sdg figure{margin:0;display:flex;align-items:center;gap:.9rem;max-width:15em;line-height:1.25;font-size:1.05rem}
+.sdg figure b{flex:0 0 auto;display:grid;place-items:center;width:4.6rem;height:4.6rem;border-radius:50%;font:800 2rem var(--disp);color:#fff;letter-spacing:-.04em}
+
+/* night */
+.night{background:#070d2b;text-align:left;overflow:hidden;position:relative}
+.night h2{font-size:clamp(3rem,10vw,8rem);max-width:9em}
+.night p{margin-top:1.5rem;font-size:1.5rem;max-width:22em}
+.night .go{margin-top:2.5rem;font:800 1.3rem var(--disp);color:var(--sun);max-width:20em}
+.phone{position:absolute;right:clamp(1rem,6vw,6rem);bottom:-2rem;width:clamp(120px,22vw,250px);aspect-ratio:9/17;border:6px solid #2a3470;border-radius:34px;
+  background:radial-gradient(circle at 50% 60%,rgba(255,194,26,.9),rgba(255,194,26,.1) 65%),#0d1540;box-shadow:0 0 120px 20px rgba(255,194,26,.25);transform:rotate(-7deg)}
+@media(max-width:700px){.phone{opacity:.35}}
+footer{background:#070d2b;color:#8d9ad0;font-size:.95rem;padding:1.5rem 0 2rem}
+/* ---------- motion ---------- */
+html{scroll-behavior:smooth}
+.rd{border-radius:2.5rem 2.5rem 0 0;margin-top:-2.5rem;position:relative}
+@media(max-width:700px){.rd{border-radius:1.5rem 1.5rem 0 0;margin-top:-1.5rem}}
+.js .wipe{clip-path:circle(0% at 50% 0%);transition:clip-path 1.4s cubic-bezier(.7,0,.2,1)}
+.js .wipe.on{clip-path:circle(150% at 50% 0%)}
+.js .wipe.done{clip-path:none;transition:none}
+/* hero intro */
+.js .hero h1{overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.js .ch{display:inline-block;animation:chIn 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.25s + var(--i)*55ms)}
+@keyframes chIn{from{translate:0 115%;rotate:10deg}to{translate:0 0;rotate:0deg}}
+.js .hero p{opacity:0;animation:fup 1s cubic-bezier(.2,.7,.2,1) 1.4s forwards}
+.js .hero p.sm{animation-delay:1.7s}
+@keyframes fup{from{opacity:0;translate:0 26px}to{opacity:1;translate:0 0}}
+.sp{position:absolute;bottom:-10px;border-radius:50%;background:#fff;opacity:0;z-index:1;pointer-events:none;animation:fl var(--t) linear var(--dl) infinite}
+@keyframes fl{0%{translate:0 0;opacity:0}15%{opacity:.85}100%{translate:var(--x) -90vh;opacity:0}}
+.cue{position:absolute;left:50%;bottom:1.4rem;z-index:3;translate:-50% 0;font:800 .95rem var(--disp);color:var(--ink);text-align:center;transition:opacity .4s}
+.cue::after{content:"";display:block;width:2px;height:40px;margin:.4rem auto 0;background:var(--ink);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{scale:1 0;transform-origin:top}50%{scale:1 1;transform-origin:top}51%{transform-origin:bottom}100%{scale:1 0;transform-origin:bottom}}
+.hero.past .cue{opacity:0}
+/* scroll reveals */
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.wd>span{display:inline-block;transition:translate 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*70ms)}
+.js .wh .wd>span{translate:0 112%}
+.js .wh.on .wd>span{translate:0 0}
+.js .rv{opacity:0;translate:0 44px;transition:opacity .9s ease,translate .9s cubic-bezier(.2,.7,.2,1),scale .9s cubic-bezier(.3,1.5,.5,1);transition-delay:calc(var(--d,0)*90ms)}
+.js .stp.rv{translate:-70px 0}
+.js .sdg figure.rv{translate:0 0;scale:.5}
+.js .rv.on{opacity:1;translate:0 0;scale:1}
+.js .stp b{display:block;scale:.4;rotate:-14deg;transition:scale .9s cubic-bezier(.3,1.6,.5,1) .2s,rotate .9s ease .2s}
+.js .stp.on b{scale:1;rotate:0deg}
+.band{background:#0a1740;overflow:hidden;padding:2.2rem 0 5rem;position:relative}
+.band div{display:flex;width:max-content;font:800 clamp(3.5rem,11vw,9rem)/1 var(--disp);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px #ffc21a;white-space:nowrap}
+.build .it h3{transition:translate .4s cubic-bezier(.2,.7,.2,1)}
+.build .it:hover h3{translate:16px 0}
+.ports figure svg{transition:scale .3s cubic-bezier(.3,1.6,.5,1)}
+.ports figure:hover svg{scale:1.12}
+/* fixed UI */
+#bar{position:fixed;left:0;top:0;height:4px;width:100%;background:#fff;transform-origin:0 50%;scale:0 1;z-index:50;mix-blend-mode:difference;pointer-events:none}
+#dots{position:fixed;right:clamp(.7rem,2vw,1.6rem);top:50%;translate:0 -50%;z-index:50;display:flex;flex-direction:column;gap:.95rem;mix-blend-mode:difference}
+#dots a{display:block;width:11px;height:11px;border-radius:50%;border:2px solid #fff;transition:scale .35s cubic-bezier(.3,1.6,.5,1),background .3s}
+#dots a.on{background:#fff;scale:1.55}
+@media(max-width:700px){#dots{display:none}}
+.phone i{position:absolute;left:14%;right:14%;bottom:7%;height:6%;border-radius:10px;background:#fff;opacity:.92}
+#calm{position:fixed;left:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;font:800 .85rem var(--disp);background:#fff;color:#0a1740;border:0;border-radius:99px;padding:.55rem 1.1rem;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.calm *,.calm *::before{animation:none!important;transition:none!important}
+.calm .rv{opacity:1!important;translate:none!important;scale:1!important}
+.calm .wh .wd>span{translate:0 0!important}
+.calm .wipe{clip-path:none!important}
+.calm .hero p{opacity:1!important}
+.calm .stp b{scale:1!important;rotate:0deg!important}
+/* looping motion */
+@media all{
+ .fr{animation:sway 5.5s ease-in-out infinite alternate}
+ @keyframes sway{from{rotate:-1.6deg}to{rotate:1.8deg}}
+ .rays{transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite}
+ @keyframes spin{to{rotate:360deg}}
+ .sunball circle:nth-of-type(3){transform-box:fill-box;transform-origin:center;animation:pulse 3.6s ease-in-out infinite}
+ @keyframes pulse{50%{scale:1.12}}
+ .batt div::before{animation:chg 6s ease-in-out infinite}
+ @keyframes chg{0%{width:8%;background:#d8402a}45%{background:#f2b705}80%,100%{width:100%;background:#3fb950}}
+ .phone{animation:bob 5s ease-in-out infinite}
+ @keyframes bob{50%{translate:0 -18px;box-shadow:0 0 170px 40px rgba(255,194,26,.42)}}
+ .phone i{animation:pc 5s ease-in-out infinite}
+ @keyframes pc{0%{height:6%}80%,100%{height:70%}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <g id="palm"><path d="M0 0C8-110-6-210 10-310" stroke="#3a2718" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <g class="fr" fill="#0f5a37" transform="translate(10 -310)">
+          <ellipse cx="62" rx="66" ry="10" transform="rotate(-165)"/><ellipse cx="62" rx="66" ry="10" transform="rotate(-125)"/>
+          <ellipse cx="62" rx="66" ry="10" transform="rotate(-80)"/><ellipse cx="62" rx="66" ry="10" transform="rotate(-35)"/>
+          <ellipse cx="62" rx="66" ry="10" transform="rotate(10)"/><ellipse cx="62" rx="66" ry="10" transform="rotate(40)"/>
+          <ellipse cx="62" rx="66" ry="10" transform="rotate(150)"/></g></g>
+    </defs>
+    <g class="sunball"><circle cx="1130" cy="250" r="230" fill="#ffc21a" opacity=".22"/><circle class="rays" cx="1130" cy="250" r="195" fill="none" stroke="#ffc21a" stroke-width="4" stroke-dasharray="2 20" stroke-linecap="round"/><circle cx="1130" cy="250" r="150" fill="#ffc21a" opacity=".4"/><circle cx="1130" cy="250" r="92" fill="#ffc21a"/></g>
+    <g fill="#2f66d6"><rect x="60" y="560" width="70" height="200"/><rect x="140" y="500" width="56" height="260"/><rect x="520" y="540" width="80" height="220"/><rect x="760" y="520" width="64" height="240"/><rect x="900" y="580" width="90" height="180"/></g>
+    <g fill="#1d46aa"><rect x="210" y="520" width="80" height="260"/><rect x="300" y="590" width="100" height="190"/><path d="M640 780V420l14-90 14 90v360z"/><rect x="690" y="540" width="70" height="240"/><rect x="1010" y="560" width="76" height="220"/></g>
+    <rect y="760" width="1440" height="140" fill="#e8d3a8"/>
+    <rect y="760" width="1440" height="10" fill="#d7bd8a"/>
+    <use href="#palm" x="90" y="800"/><use href="#palm" x="500" y="790" transform="translate(0 0) scale(.9)"/><use href="#palm" x="1380" y="810"/>
+    <g transform="translate(790 600)">
+      <rect x="0" y="120" width="560" height="20" rx="4" fill="#8b4a22"/><rect x="0" y="146" width="560" height="20" rx="4" fill="#a45a2b"/>
+      <rect x="10" y="60" width="540" height="18" rx="4" fill="#8b4a22"/><rect x="10" y="86" width="540" height="18" rx="4" fill="#a45a2b"/>
+      <rect x="40" y="170" width="24" height="120" fill="#b9b2a4"/><rect x="496" y="170" width="24" height="120" fill="#b9b2a4"/>
+      <rect x="200" y="20" width="170" height="100" rx="10" fill="#d4d9e1"/>
+      <g transform="translate(212 -4) skewX(-10)"><rect width="140" height="40" rx="3" fill="#0d2a66"/><path d="M35 0v40M70 0v40M105 0v40M0 20h140" stroke="#6b90df" stroke-width="1.5"/></g>
+      <rect x="360" y="52" width="12" height="18" rx="2" fill="#0a1740"/><rect x="360" y="78" width="12" height="18" rx="2" fill="#0a1740"/>
+    </g>
+  </svg>
+  <div class="w">
+    <h1>SunCharge <span>Dubai</span></h1>
+    <p>Portable solar power for benches, parks, and bus stops.</p>
+    <p class="sm">A small public service powered by the city’s strongest natural resource.</p>
+  </div>
+</header>
+
+<section class="prob" id="problem">
+  <div class="w g">
+    <div>
+      <h2>Dead batteries create a real outdoor problem</h2>
+      <p class="lead tx">When a battery runs low outdoors, public charging is limited and usually fixed to one location.</p>
+      <div class="batt" aria-hidden="true"><div></div></div>
+      <p class="opp tx"><b>The opportunity:</b> make backup power available where people already wait, rest, and move.</p>
+    </div>
+    <div>
+      <p style="font-style:italic;margin-bottom:.8rem">People rely on their phones for four things.</p>
+      <ul class="needs">
+        <li>Communication <i>1</i></li><li>Navigation <i>2</i></li><li>Payments <i>3</i></li><li>Emergencies <i>4</i></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="w">
+    <h2>Sunlight becomes stored backup power</h2>
+    <p class="tx" style="margin-top:1.2rem">One simple energy flow, from daylight to a connected phone, in four steps.</p>
+    <svg class="arc" viewBox="0 0 1000 260" aria-hidden="true">
+      <path d="M20 240Q500-120 980 240" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/>
+      <circle cx="135" cy="164" r="14" fill="#ffc21a"/><circle cx="375" cy="72" r="14" fill="#fff"/><circle cx="625" cy="72" r="14" fill="#fff"/><circle cx="865" cy="164" r="14" fill="#fff"/>
+      <circle cx="135" cy="164" r="30" fill="#ffc21a" opacity=".3"/>
+    </svg>
+    <div class="steps">
+      <div><h3>Collect</h3><p>Solar panel collects energy during the day.</p></div>
+      <div><h3>Manage</h3><p>Charge controller manages the flow safely.</p></div>
+      <div><h3>Store</h3><p>Battery stores energy for shade, evening, or cloudy periods.</p></div>
+      <div><h3>Deliver</h3><p>Fast-charge ports deliver power when a user connects a phone.</p></div>
+    </div>
+    <div class="fin">
+      <div>
+        <h3>Goes where people need it</h3>
+        <p class="tx">A compact solar charging unit can sit on a bench, beside a path, or at a bus stop: three places people already stop.</p>
+      </div>
+      <div>
+        <h3>Zero digging. Zero wiring.</h3>
+        <p class="tx">For a pilot, it needs no digging, wiring, or permanent installation. Two ports, ready for any phone:</p>
+        <div class="ports">
+          <figure><svg width="86" height="40" viewBox="0 0 86 40" aria-hidden="true"><rect x="2" y="2" width="82" height="36" rx="18" fill="none" stroke="#fff" stroke-width="3"/><rect x="18" y="16" width="50" height="8" rx="4" fill="#fff"/></svg>USB-C</figure>
+          <figure><svg width="86" height="40" viewBox="0 0 86 40" aria-hidden="true"><rect x="2" y="2" width="82" height="36" rx="3" fill="none" stroke="#fff" stroke-width="3"/><rect x="14" y="22" width="58" height="8" fill="#fff"/></svg>USB-A</figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dub" id="dubai">
+  <div class="w">
+    <div class="big" aria-label="100 percent">100<sup>%</sup></div>
+    <div class="row">
+      <h2>Dubai’s Clean Energy Strategy aims for 100% of energy from clean sources by 2050</h2>
+      <ul class="why">
+        <li><b>Strong sunshine</b>Supports the basic solar-energy concept.</li>
+        <li><b>Outdoor movement</b>Residents and visitors spend time moving through parks, promenades, outdoor venues, and transit stops.</li>
+        <li><b>Visible ambition</b>A city target that a small public service can help make visible.</li>
+      </ul>
+    </div>
+    <p class="close">SunCharge turns a city sustainability ambition into a visible everyday service.</p>
+  </div>
+</section>
+
+<section class="build" id="build">
+  <div class="w">
+    <h2>Four things the unit has to survive</h2>
+    <div class="g">
+      <div class="it"><h3>Heat</h3><p>Use a shaded, ventilated enclosure and heat-tolerant components.</p></div>
+      <div class="it"><h3>Dust</h3><p>Seal key electronics and protect ports with covers.</p></div>
+      <div class="it"><h3>Portability</h3><p>Keep the unit light enough to move, but stable enough to stay put.</p></div>
+      <div class="it"><h3>Security</h3><p>Add a lock point, tamper-resistant casing, and a simple check-in routine.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pilot" id="pilot">
+  <div class="w">
+    <h2>Start small, not with a huge rollout</h2>
+    <p class="lead tx">Build small, place carefully, and learn in public.</p>
+    <div class="path">
+      <div class="stp"><b>1</b><div><h3>Build</h3><p>A small pilot batch with affordable off-the-shelf solar, battery, and charging parts.</p></div></div>
+      <div class="stp"><b>2</b><div><h3>Show</h3><p>Share simple impact data: uses, charging sessions, and uptime.</p></div></div>
+      <div class="stp"><b>3</b><div><h3>Reinvest</h3><p>Put pilot revenue into better batteries, stronger enclosures, and more locations.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mat" id="matters">
+  <div class="w">
+    <h2>One charger, three kinds of value</h2>
+    <div class="g">
+      <div><h3>Community</h3><p>More reliable access to communication, maps, payments, and emergency contact.</p></div>
+      <div><h3>Environment</h3><p>Use renewable energy for small everyday power needs and encourage sustainable habits.</p></div>
+      <div><h3>City</h3><p>Dubai gets a low-cost way to test everyday clean-energy services, with measurable impact.</p></div>
+    </div>
+    <div class="sdg">
+      <p>Four UN Sustainable Development Goals</p>
+      <figure><b style="background:#e5a200;color:#0a1740">7</b>Affordable and Clean Energy</figure>
+      <figure><b style="background:#f26a21">9</b>Industry, Innovation and Infrastructure</figure>
+      <figure><b style="background:#e8812a">11</b>Sustainable Cities and Communities</figure>
+      <figure><b style="background:#3f7e44">13</b>Climate Action</figure>
+    </div>
+  </div>
+</section>
+
+<section class="night" id="invitation">
+  <div class="phone" aria-hidden="true"></div>
+  <div class="w">
+    <h2>Let’s make clean energy useful in everyday life</h2>
+    <p>SunCharge Dubai turns abundant sunlight into a small but visible public service.</p>
+    <p class="go">Build one prototype. Test it where people already gather.</p>
+  </div>
+</section>
+<footer><div class="w">SunCharge Dubai, a student concept.</div></footer>
+<script>
+(()=>{
+const $=(s,c=document)=>[...c.querySelectorAll(s)],D=document;
+const mk=(t,c,p)=>{const e=D.createElement(t);if(c)e.className=c;if(p)p.append(e);return e};
+D.documentElement.classList.add('js');
+const hero=$('.hero')[0];hero.id='top';
+
+/* 1. hero title: letters rise one by one */
+const h1=$('h1',hero)[0];let ci=0;
+h1.setAttribute('aria-label',h1.textContent.replace(/\s+/g,' ').trim());
+(function sp(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=D.createDocumentFragment();[...c.textContent].forEach(ch=>{if(/\s/.test(ch)){f.append(' ');return}const s=mk('span','ch');s.setAttribute('aria-hidden','true');s.style.setProperty('--i',ci++);s.textContent=ch;f.append(s)});c.replaceWith(f)}else sp(c)})})(h1);
+
+/* 2. headings: word-by-word mask reveal */
+$('h2').forEach(h=>{const w=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',w.join(' '));h.textContent='';w.forEach((t,i)=>{const o=mk('span','wd');o.setAttribute('aria-hidden','true');const s=mk('span','',o);s.style.setProperty('--i',i);s.textContent=t;h.append(o,' ')});h.classList.add('wh')});
+
+/* 3. everything else fades and slides in, staggered */
+$('.tx,.opp,.it,.stp,.why li,.needs li,.steps>div,.fin>div,.mat .g>div,.sdg>p,.sdg figure,.dub .close,.night p,.batt,.prob .g>div>p').forEach(e=>{if(e.parentElement.closest('.rv'))return;e.classList.add('rv');e.style.setProperty('--d',[...e.parentElement.children].indexOf(e))});
+
+/* 4. page transitions: each section opens like a sunrise wipe and slides over the last */
+const sections=[hero,...$('section')];
+$('section').forEach(s=>s.classList.add('rd','wipe'));
+
+/* 5. scrolling ticker between sections */
+const band=mk('div','band'),bt=mk('div','',band);
+bt.textContent='Collect \u2192 Manage \u2192 Store \u2192 Deliver \u2192 '.repeat(4);bt.setAttribute('aria-hidden','true');
+$('.dub')[0].before(band);
+
+/* 6. progress bar + section dots */
+const bar=mk('div','',D.body);bar.id='bar';
+const nav=mk('nav','',D.body);nav.id='dots';nav.setAttribute('aria-label','Sections');
+const dots=sections.map(s=>{const a=mk('a','',nav);a.href='#'+s.id;a.title=s.id;a.setAttribute('aria-label',s.id);return a});
+
+/* 7. floating sun sparkles, scroll cue, charging phone */
+for(let i=0;i<18;i++){const s=mk('i','sp',hero),z=3+Math.random()*5;s.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;--t:${7+Math.random()*8}s;--dl:${-Math.random()*12}s;--x:${(Math.random()-.5)*160}px`}
+mk('div','cue',hero).textContent='scroll';
+mk('i','',$('.phone')[0]);
+const cb=mk('button','',D.body);cb.id='calm';cb.textContent='Pause motion';
+cb.onclick=()=>{const c=D.documentElement.classList.toggle('calm');cb.textContent=c?'Play motion':'Pause motion'};
+
+/* 8. the 100% counts up */
+const big=$('.big')[0],num=mk('span');num.textContent='0';big.firstChild.replaceWith(num);let c0=0;
+
+/* 9. a sun travels the energy arc, lighting each step as it passes */
+const arc=$('.arc')[0],ac=$('circle',arc),sc=D.createElementNS('http://www.w3.org/2000/svg','circle');
+sc.setAttribute('r','11');sc.setAttribute('fill','#ffc21a');arc.append(sc);ac[4].style.display='none';
+const DT=[.12,.37,.63,.88];
+
+/* 10. hero depth: mouse + scroll parallax */
+const L=[['.sunball',40,.45],['g[fill="#2f66d6"]',16,.35],['g[fill="#1d46aa"]',26,.22],['use',44,.12],['.scene>g:last-of-type',70,.05]].map(([s,d,k])=>[$(s,hero),d,k]);
+let mx=0,my=0,cx=0,cy=0,dirty=1,act=-1,pend=$('.rv,.wh,.wipe');
+addEventListener('scroll',()=>dirty=1,{passive:true});
+addEventListener('resize',()=>dirty=1);
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+const open=e=>{e.classList.add('on');if(e.classList.contains('wipe'))setTimeout(()=>e.classList.add('done'),1700)};
+
+function tick(now){
+ const y=scrollY,H=innerHeight;
+ if(dirty){dirty=0;
+  bar.style.scale=(y/((D.documentElement.scrollHeight-H)||1))+' 1';
+  pend=pend.filter(e=>{const r=e.getBoundingClientRect();
+   if(r.bottom<0){e.classList.add('on','done');return false}
+   if(r.top<H*(e.classList.contains('wipe')?.9:.93)){open(e);return false}
+   return true});
+  sections.forEach((s,i)=>{if(s.getBoundingClientRect().top<=H*.5)act=i});
+  dots.forEach((d,i)=>d.classList.toggle('on',i===act));
+  hero.classList.toggle('past',y>60);
+  if(!c0&&big.getBoundingClientRect().top<H*.8)c0=now;
+ }
+ if(c0){const p=Math.min((now-c0)/2200,1);num.textContent=Math.round(100*(1-Math.pow(1-p,3)))}
+ const t=(now/9000)%1,u=1-t;
+ sc.setAttribute('cx',u*u*20+2*u*t*500+t*t*980);sc.setAttribute('cy',u*u*240+2*u*t*-120+t*t*240);
+ DT.forEach((d,i)=>{ac[i].setAttribute('r',Math.abs(t-d)<.06?20:14);ac[i].setAttribute('fill',t>d?'#ffc21a':'#fff')});
+ if(y<H*1.3){cx+=(mx-cx)*.06;cy+=(my-cy)*.06;L.forEach(([els,d,k])=>els.forEach(e=>e.style.translate=`${-cx*d}px ${-cy*d*.6+y*k}px`))}
+ const br=band.getBoundingClientRect();
+ if(br.bottom>0&&br.top<H)bt.style.translate=`${-((H-br.top)/(H+br.height))*24}% 0`;
+ requestAnimationFrame(tick)
+}
+requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
